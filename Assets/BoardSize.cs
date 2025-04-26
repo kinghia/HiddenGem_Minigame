@@ -4,6 +4,13 @@ using TMPro;
 
 public class BoardSize : MonoBehaviour
 {
+    [SerializeField] GameObject Main;
+    [SerializeField] GameObject Stage1;
+    [SerializeField] GameObject Stage2;
+    [SerializeField] GameObject Stage3;
+    [SerializeField] GameObject Stage4;
+    [SerializeField] GameObject Stage5;
+
     public TextMeshProUGUI widthText;
     public TextMeshProUGUI heightText;
     public Button widthUpButton;
@@ -70,6 +77,10 @@ public class BoardSize : MonoBehaviour
     {
         Debug.Log($"BoardSize da lua chon: {width} x {height}");
         // Bạn có thể thêm hành động khác tại đây, như chuyển scene, tạo board mới, v.v.
+        if (width == 4 && height == 4)
+        {
+            Instantiate(Stage1, transform.position, Quaternion.identity);  
+        }
     }
 
     private void UpdateUI()
