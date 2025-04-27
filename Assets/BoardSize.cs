@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class BoardSize : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BoardSize : MonoBehaviour
     [SerializeField] GameObject Stage3;
     [SerializeField] GameObject Stage4;
     [SerializeField] GameObject Stage5;
+    private GameObject currentStage = null;
 
     public TextMeshProUGUI widthText;
     public TextMeshProUGUI heightText;
@@ -75,13 +77,49 @@ public class BoardSize : MonoBehaviour
 
     private void ConfirmSize()
     {
-        Debug.Log($"BoardSize da lua chon: {width} x {height}");
-        // Bạn có thể thêm hành động khác tại đây, như chuyển scene, tạo board mới, v.v.
+        Debug.Log($"BoardSize đã lựa chọn: {width} x {height}");
+
+        GameObject nextStage = null;
+
         if (width == 4 && height == 4)
         {
-            Instantiate(Stage1, transform.position, Quaternion.identity);  
+            nextStage = Stage1;
         }
+        else if (width == 5 && height == 5)
+        {
+            nextStage = Stage2;
+        }
+        else if (width == 6 && height == 6)
+        {
+            nextStage = Stage3;
+        }
+        else if (width == 7 && height == 7)
+        {
+            nextStage = Stage4;
+        }
+        else if (width == 8 && height == 8)
+        {
+            nextStage = Stage5;
+        }
+        else
+        {
+            Debug.Log("Size không hợp lệ");
+            return;
+        }
+
+        // Nếu đang có stage cũ bật, tắt nó
+        if (currentStage != null)
+        {
+            currentStage.SetActive(false);
+        }
+
+        // Bật stage mới
+        nextStage.SetActive(true);
+
+        // Cập nhật stage hiện tại
+        currentStage = nextStage;
     }
+
 
     private void UpdateUI()
     {
