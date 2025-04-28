@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5850429573320938943}
   - component: {fileID: 3504684655847318878}
   m_Layer: 0
-  m_Name: Gem
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1239199174320906077
 Transform:
   m_ObjectHideFlags: 0
@@ -45,11 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91344f740cacfe4f8df9187e1304541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  occupiedCells:
-  - {fileID: 6235874467985571914, guid: ca8f5c0565c9fc740a6010a5e9f7c82f, type: 3}
-  - {fileID: 6235874467985571914, guid: 8fcba120b2830c946b0ac79ec43fc573, type: 3}
-  - {fileID: 6235874467985571914, guid: c2573189216530e4ab3fbf0dc72881a5, type: 3}
-  - {fileID: 6235874467985571914, guid: ea73d418424dc2a46818071269e8fc0c, type: 3}
 --- !u!212 &3504684655847318878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -95,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7667371987647404058, guid: 9a45c247807e7e949afe8e35f855b8af, type: 3}
-  m_Color: {r: 0.98490566, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6301887, g: 0.5126127, b: 0.046372306, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

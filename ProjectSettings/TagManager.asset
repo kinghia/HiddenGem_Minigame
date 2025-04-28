@@ -44,5 +44,8 @@ TagManager:
   - name: Stage
     uniqueID: 3548893381
     locked: 0
+  - name: Cell
+    uniqueID: 100380845
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -57,13 +57,18 @@ public class GridManager : MonoBehaviour
 
             if (CanPlaceGem(startX, startY, width, height))
             {
+                GameObject gemObj = new GameObject($"Gem_{width}x{height}");
+                Gem gem = gemObj.AddComponent<Gem>();
+
                 for (int x = 0; x < width; x++)
                 {
                     for (int y = 0; y < height; y++)
                     {
-                        gridCells[startX + x, startY + y].SetGemPart();
+                        Cell cell = gridCells[startX + x, startY + y];
+                        gem.AssignCell(cell);
                     }
                 }
+
                 placed = true;
             }
 
@@ -75,6 +80,7 @@ public class GridManager : MonoBehaviour
             Debug.LogWarning($"Không thể đặt Gem {width}x{height} sau {attempts} lần thử.");
         }
     }
+
 
     private bool CanPlaceGem(int startX, int startY, int width, int height)
     {
