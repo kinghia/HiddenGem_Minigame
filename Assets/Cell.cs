@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cell : MonoBehaviour, IPointerClickHandler
+public class Cell : MonoBehaviour
 {
     public int x;
     public int y;
@@ -30,9 +30,10 @@ public class Cell : MonoBehaviour, IPointerClickHandler
         return hasGem;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnMouseDown()
     {
         Dig();
+        gameObject.SetActive(false);
     }
 
     private void Dig()
