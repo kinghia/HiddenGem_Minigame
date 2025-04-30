@@ -5,7 +5,7 @@ public class GridManager : MonoBehaviour
 {
     public int rows = 4;
     public int columns = 4;
-    public float cellSize = 100f;
+    public float cellSize = 1f;
     public GameObject cellPrefab;
     public Transform gridParent;
 
@@ -38,6 +38,8 @@ public class GridManager : MonoBehaviour
     {
         // Ví dụ đặt 1 gem 1x2
         PlaceGem(1, 2);
+        PlaceGem(1, 2);
+
 
         // Đặt 1 gem 2x2
         PlaceGem(2, 2);

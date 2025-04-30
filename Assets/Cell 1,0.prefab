@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4c520d1f38af446a274087fc7e40e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 1
+  x: 0
   y: 0
   backgroundObject: {fileID: 2058794651801966891, guid: 8c44e2fb19e7bb146b7de003fce8397b, type: 3}
   iconObject: {fileID: 2058794651801966891, guid: 1a564d93bc73f5a41bf21f7e4d6f2ea9, type: 3}

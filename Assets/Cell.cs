@@ -33,7 +33,7 @@ public class Cell : MonoBehaviour
     public void OnMouseDown()
     {
         Dig();
-        gameObject.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void Dig()

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
-  y: 1
+  y: 0
   backgroundObject: {fileID: 2058794651801966891, guid: 8c44e2fb19e7bb146b7de003fce8397b, type: 3}
   iconObject: {fileID: 2058794651801966891, guid: 1a564d93bc73f5a41bf21f7e4d6f2ea9, type: 3}
 --- !u!212 &9211489347860864723
