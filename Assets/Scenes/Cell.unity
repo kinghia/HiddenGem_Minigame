@@ -348,7 +348,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2343173827234438448, guid: 97abdeb28b3f0d940a03e71d7959954f, type: 3}
   m_PrefabInstance: {fileID: 1911578598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1708277471
+--- !u!114 &1708277474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,6 +365,28 @@ MonoBehaviour:
   cellSize: 0.5
   cellPrefab: {fileID: 2397880641342095051, guid: 9a4f9455e770d33438d4e9d055069868, type: 3}
   gridParent: {fileID: 1310384102}
+  gem1x2Prefab: {fileID: 3421980522837855630, guid: 4bb379f92796174489c04b775d70c7c6, type: 3}
+  gem1x2Prefabs: {fileID: 3421980522837855630, guid: 4bb379f92796174489c04b775d70c7c6, type: 3}
+  gem1x3Prefab: {fileID: 6197540136642464198, guid: aa1b3b656518f92499fe4c161e2a8ddf, type: 3}
+  gem2x2Prefab: {fileID: 8450931693259834347, guid: f6df04047f24478488062adea9c61dca, type: 3}
+--- !u!114 &1708277475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708277470}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd6707aa9a13ef4d9240bdd99e85251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridWidth: 4
+  gridHeight: 4
+  cellSize: 1
+  gridParent: {fileID: 1310384102}
+  cellPrefab: {fileID: 2397880641342095051, guid: 9a4f9455e770d33438d4e9d055069868, type: 3}
+  gemPrefab: {fileID: 3421980522837855630, guid: 4bb379f92796174489c04b775d70c7c6, type: 3}
 --- !u!1001 &1911578598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,7 +461,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2343173827234438448, guid: 97abdeb28b3f0d940a03e71d7959954f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1708277471}
+      addedObject: {fileID: 1708277475}
+    - targetCorrespondingSourceObject: {fileID: 2343173827234438448, guid: 97abdeb28b3f0d940a03e71d7959954f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1708277474}
   m_SourcePrefab: {fileID: 100100000, guid: 97abdeb28b3f0d940a03e71d7959954f, type: 3}
 --- !u!1 &2095562597
 GameObject:

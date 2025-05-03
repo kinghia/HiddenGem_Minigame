@@ -9,12 +9,20 @@ public class GridManager : MonoBehaviour
     public GameObject cellPrefab;
     public Transform gridParent;
 
+    public GameObject gem1x2Prefab;
+    public GameObject gem1x2Prefabs;
+    public GameObject gem1x3Prefab;
+    public GameObject gem2x2Prefab;
+
     private Cell[,] gridCells;
 
     void Start()
     {
         GenerateGrid();
-        PlaceGems();
+        PlaceGem(1, 2, gem1x2Prefab);
+        PlaceGem(1, 2, gem1x2Prefabs);
+        PlaceGem(2, 2, gem2x2Prefab);
+        PlaceGem(1, 3, gem1x3Prefab);
     }
 
     private void GenerateGrid()
@@ -36,39 +44,50 @@ public class GridManager : MonoBehaviour
 
     private void PlaceGems()
     {
-        // Ví dụ đặt 1 gem 1x2
-        PlaceGem(1, 2);
-        PlaceGem(1, 2);
-
-
-        // Đặt 1 gem 2x2
-        PlaceGem(2, 2);
-
-        // Đặt 1 gem 1x3
-        PlaceGem(1, 3);
+        
     }
 
-    private void PlaceGem(int width, int height)
+    private void PlaceGem(int width, int height, GameObject prefab)
     {
+        if (prefab == null)
+        {
+            Debug.LogError("Prefab bị null khi đặt gem " + width + "x" + height);
+            return;
+        }
+
         bool placed = false;
         int attempts = 0;
+
         while (!placed && attempts < 100)
         {
-            int startX = Random.Range(0, columns);
-            int startY = Random.Range(0, rows);
+            int startX = Random.Range(0, columns - width + 1);
+            int startY = Random.Range(0, rows - height + 1);
 
             if (CanPlaceGem(startX, startY, width, height))
             {
-                GameObject gemObj = new GameObject($"Gem_{width}x{height}");
-                Gem gem = gemObj.AddComponent<Gem>();
+                // Tính vị trí trung tâm của các Cell được gem chiếm
+                Vector3 gemPosition = Vector3.zero;
+                List<Cell> gemCells = new List<Cell>();
 
                 for (int x = 0; x < width; x++)
                 {
                     for (int y = 0; y < height; y++)
                     {
                         Cell cell = gridCells[startX + x, startY + y];
-                        gem.AssignCell(cell);
+                        gemCells.Add(cell);
+                        gemPosition += cell.transform.position;
                     }
+                }
+
+                gemPosition /= gemCells.Count; // Trung bình vị trí
+
+                // Instantiate Gem ở vị trí đó
+                GameObject gemObj = Instantiate(prefab, gemPosition, Quaternion.identity);
+                Gem gem = gemObj.GetComponent<Gem>();
+
+                foreach (var cell in gemCells)
+                {
+                    gem.AssignCell(cell);
                 }
 
                 placed = true;
@@ -82,6 +101,7 @@ public class GridManager : MonoBehaviour
             Debug.LogWarning($"Không thể đặt Gem {width}x{height} sau {attempts} lần thử.");
         }
     }
+
 
 
     private bool CanPlaceGem(int startX, int startY, int width, int height)
